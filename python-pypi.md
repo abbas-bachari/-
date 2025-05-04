@@ -142,7 +142,10 @@ chmod 600 ~/.pypirc
 ```bash
 twine upload dist/*
 ```
-
+یا
+```bash
+twine upload --config-file .pypirc dist/*
+```
 ---
 
 ### 🧪 آپلود به PyPI آزمایشی (اختیاری)
@@ -161,9 +164,12 @@ password = pypi-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 و اجرای:
 
 ```bash
+twine upload -r testpypi --config-file .pypirc dist/*
+```
+یا
+```bash
 twine upload -r testpypi dist/*
 ```
-
 ---
 
 ### ⛔ روش ساده‌تر (کمتر امن)
@@ -187,6 +193,12 @@ twine check dist/*
 ```bash
 pip install your-package-name
 ```
+
+### نصب نسخه آزمایشی
+```bash
+pip install --index-url https://test.pypi.org/simple/ --extra-index-url https://pypi.org/simple your-package-name
+```
+
 
 ---
 
